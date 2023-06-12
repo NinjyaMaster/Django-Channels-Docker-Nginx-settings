@@ -34,7 +34,7 @@
 
 
   <p align="center">
-A basic sample of setting up React, NGINX, and Certbot in a Docker container:
+A basic sample of setting up NGINX, Django, and Django Channels in a Docker container:
     <br />
     <a href="https://github.com/NinjyaMaster/docker-nginx-certbot-react/"><strong>Explore the docs »</strong></a>
     <br />
@@ -59,7 +59,6 @@ A basic sample of setting up React, NGINX, and Certbot in a Docker container:
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -74,7 +73,7 @@ A basic sample of setting up React, NGINX, and Certbot in a Docker container:
 ## About The Project
 
 
-This project provides a simple yet straightforward guide on setting up a web application using React, Nginx, and Certbot, all neatly contained within Docker. This setup streamlines the deployment process and makes it effortless to host a secure, high-performing web application.
+This project provides a basic template to set up Django, Django Channels, Docker, and Nginx together in a convenient and straightforward way.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,40 +96,39 @@ This project provides a simple yet straightforward guide on setting up a web app
 
 Before you start with the project setup, there are some prerequisites that you need to ensure are in place.
 
-### Prerequisites
-
-#### SSL/TLS Certificates
-
-This project requires SSL/TLS certificates to be under the /etc/letsencrypt directory of your machine. The certificate files specifically needed are fullchain.pem and privkey.pem. These files are essential for setting up a secure HTTPS connection for your web application.
-<!-- 
-* Install certbot
-  ```sh
-  sudo apt install certbot python3-certbot-nginx
-  ```
- * Obtaining an SSL Certificate
-  ```sh
-  sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com
-  ```
-Please ensure that you replace yourdomain.com with your actual domain name.
--->
-After successful verification, Certbot will store the fullchain.pem and privkey.pem files in the /etc/letsencrypt/live/yourdomain.com/ directory
-
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/NinjyaMaster/docker-nginx-certbot-react.git
+   git clone https://github.com/NinjyaMaster/Django-Channels-Docker-Nginx-settings.git
    ```
-3. Edit  <a href='https://github.com/NinjyaMaster/docker-nginx-certbot-react/blob/main/nginx/default-https.conf'>default-https.conf</a>
+2. Navigate to the project directory
+  ```sh
+  cd Django-Channels-Docker-Nginx-settings
+  ```
+   
+3. Run Docker-compose
    ```sh
-   nano ./nginx/default-https.conf
+   docker-compose up --build -d
    ```
-   Please ensure that you replace yourdomain.com with your actual domain name.
+   omitting -d if you want to be fed the logs immediately. Remember ctrl + z will exit out of logs without killing the containers
+   
 4. Run Docker
-   ```js
+   ```sh
    docker-compose -f docker-compose-https.yml -d up
    ```
+   
+5. the initial migration
+   ```sh
+   docker-compose run django_asgi python manage.py migrate
+   ```
+   
+6. Create Superuser
+   ```sh
+   docker-compose run django_asgi python manage.py createsuperuser
+   ```
+   
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
