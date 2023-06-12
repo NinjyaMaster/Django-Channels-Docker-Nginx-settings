@@ -82,10 +82,11 @@ This project provides a simple yet straightforward guide on setting up a web app
 
 ### Built With
 
-* [![React][React.js]][React-url]
 * [![Docker][Docker.com]][Docker-url]
 * [![NGINX][NGINX.com]][NGINX-url]
-* [![Certbot][certbot.eff.org]][Certbot-url]
+* [![Django][Djangoproject.com]][Django-url]
+* [![Channels][Channels.io]][Channels-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -160,9 +161,7 @@ Project Link: [https://github.com/NinjyaMaster/docker-nginx-certbot-react](https
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+This repo is based on <a href='https://github.com/jhnoor/docker-nginx-django-channels'>Jamawadi Noor's docker-nginx-django-channels</a>
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -207,3 +206,7 @@ Project Link: [https://github.com/NinjyaMaster/docker-nginx-certbot-react](https
 [certbot.eff.org]: https://img.shields.io/badge/certbot-0769AD?style=for-the-badge&logo=certbot&logoColor=white
 [Certbot-url]: https://certbot.eff.org/
 [default-https-url]: https://github.com/NinjyaMaster/docker-nginx-certbot-react/blob/main/nginx/default-https.conf
+[Djangoproject.com]: https://img.shields.io/badge/Django-4A4A55?style=for-the-badge&logo=django&logoColor=FF3E00
+[Django-url]:https://www.djangoproject.com/
+[Channels.io]:https://img.shields.io/badge/DjangoChannels-4A4A55?style=for-the-badge&logo=django&logoColor=FF3E00
+[Channels-url]:https://channels.readthedocs.io/en/stable/
